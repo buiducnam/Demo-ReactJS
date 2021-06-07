@@ -1,23 +1,16 @@
+import React, { Component } from 'react';
 import './App.css';
-import TodoList from './components/TodoList';
+import TodoList from './components/TodoList/TodoList';
+import TrafficLight from './components/TrafficLight/TrafficLight';
 
-function App() {
-  const todoList = [
-    { title: 'Go to school', isComplete: true},
-    { title: 'Go to school', isComplete: true},
-    { title: 'Go to school'}
-  ];
-
-  return (
-    <div className="App">
-      {
-        todoList.length === 0 ? "Nothing data" : 
-        todoList.map((item, index) => 
-          <TodoList key={index} item = {item}
-        />)
-      }
-    </div>
-  );
+class App extends Component {
+  render(){
+    return (
+      <div className="App">
+        <TrafficLight />
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -1,0 +1,21 @@
+.TrafficLight{
+}
+.TrafficLight .light{
+    height: 100px;
+    width: 100px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+.TrafficLight .light.active{
+    opacity: 1;
+}
+.TrafficLight .light.red{
+    background-color: red;
+}
+.TrafficLight .light.green{
+    background-color: green;
+}
+.TrafficLight .light.yellow{
+    background-color: yellow;
+}
