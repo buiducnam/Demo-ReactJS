@@ -7,7 +7,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      newItem: "",
       todoList : [
         {title: 'Go to school',  isComplete: true},
         {title: 'Go to bed'},
@@ -17,7 +16,6 @@ class App extends Component {
   }
 
   onChangeItem(item) {
-
     this.setState({
       todoList : this.state.todoList.map((todo) => {
         return todo === item ? {...todo, isComplete: !item.isComplete} : {...todo};
@@ -26,28 +24,29 @@ class App extends Component {
   }
 
   onKeyUp = (event) => {
-    // let text = event.target.value;
     if(event.keyCode === 13){
       if(event.target.value.trim() !== ""){
-        this.setState({
-          newItem: "",
+          this.setState({
           todoList : [
             {title: event.target.value, isComplete: false},
             ...this.state.todoList
           ]
         });
+        event.target.value = "";
       }
+      console.log(this.state);
+    // localStorage.setItem("todo", JSON.stringify(this.state.todoList));
     }
   }
 
-  onChange = (event) => {
-    this.setState({
-      newItem: event.target.value,
-  });
-  }
+  // onChange = (event) => {
+  //   this.setState({
+  //     newItem: event.target.value,
+  //   });
+  // }
 
   render(){
-    let { todoList, newItem } = this.state;
+    let { todoList } = this.state;
     return (
       <div className="App">
             <div className="header">
@@ -55,8 +54,8 @@ class App extends Component {
               <input 
                 placeholder="Add a item here" 
                 onKeyUp={this.onKeyUp} 
-                value={newItem} 
-                onChange={this.onChange}  
+                // value={newItem} 
+                // onChange={this.onChange}  
               />
             </div>
        {

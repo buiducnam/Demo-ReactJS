@@ -2,6 +2,7 @@ import './TodoList.css';
 import classnames from "classnames";
 const TodoList = (props) => {
     const {item, onClick} = props;
+    console.log(onClick);
     
     return(
         <div className= {classnames('TodoList', {"TodoList-Complete" : item.isComplete})}>
